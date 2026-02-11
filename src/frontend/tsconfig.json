@@ -17,11 +17,10 @@
     "isolatedModules": true,
     "noEmit": true,
 
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
     },
-
     "types": ["vite/client", "node"]
   },
   "include": ["src"]
