@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -9,48 +10,73 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center py-4">
 
         {/* Logo */}
-        <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent cursor-pointer">
+        <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent cursor-pointer">
           SmartFind
-        </div>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center font-medium">
-          <li className="relative group">
-            <span className="cursor-pointer text-gray-700 hover:text-indigo-600 transition">
-              For Sale
-            </span>
-          </li>
 
-          <li className="relative group">
-            <span className="cursor-pointer text-gray-700 hover:text-blue-600 transition">
-              For Rent
-            </span>
+          <li>
+            <Link
+              to="/buy"
+              className="cursor-pointer text-gray-700 hover:text-indigo-600 transition"
+            >
+              Buy
+            </Link>
           </li>
 
           <li>
             <Link
+              to="/sell"
+              className="cursor-pointer text-gray-700 hover:text-indigo-600 transition"
+            >
+              Sell
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/rent"
+              className="cursor-pointer text-gray-700 hover:text-blue-600 transition"
+            >
+              Rent
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              to="/find-agency"
+              className="cursor-pointer text-gray-700 hover:text-blue-600 transition"
+            >
+              Find an Agency
+            </Link>
+          </li>
+
+          <li>
+            <ScrollLink
               to="features"
               smooth
               duration={500}
               className="cursor-pointer text-gray-700 hover:text-indigo-600 transition"
             >
               Features
-            </Link>
+            </ScrollLink>
           </li>
 
           <li>
-            <Link
+            <ScrollLink
               to="pricing"
               smooth
               duration={500}
               className="cursor-pointer text-gray-700 hover:text-blue-600 transition"
             >
               Pricing
-            </Link>
+            </ScrollLink>
           </li>
         </ul>
 
-        {/* Desktop Buttons */}
+        {/* Desktop Buttons (UNCHANGED) */}
         <div className="hidden md:flex gap-4">
           <button className="px-4 py-2 rounded-lg border border-indigo-500 text-indigo-600 hover:bg-indigo-600 hover:text-white transition">
             Login
@@ -76,6 +102,38 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t px-6 py-4 space-y-4">
 
           <Link
+            to="/buy"
+            onClick={() => setOpen(false)}
+            className="block text-gray-700 font-medium"
+          >
+            Buy
+          </Link>
+
+          <Link
+            to="/sell"
+            onClick={() => setOpen(false)}
+            className="block text-gray-700 font-medium"
+          >
+            Sell
+          </Link>
+
+          <Link
+            to="/rent"
+            onClick={() => setOpen(false)}
+            className="block text-gray-700 font-medium"
+          >
+            Rent
+          </Link>
+
+          <Link
+            to="/find-agency"
+            onClick={() => setOpen(false)}
+            className="block text-gray-700 font-medium"
+          >
+            Find an Agency
+          </Link>
+
+          <ScrollLink
             to="features"
             smooth
             duration={500}
@@ -83,9 +141,9 @@ export default function Navbar() {
             className="block text-gray-700 font-medium"
           >
             Features
-          </Link>
+          </ScrollLink>
 
-          <Link
+          <ScrollLink
             to="pricing"
             smooth
             duration={500}
@@ -93,17 +151,9 @@ export default function Navbar() {
             className="block text-gray-700 font-medium"
           >
             Pricing
-          </Link>
+          </ScrollLink>
 
-          <a className="block text-gray-700 font-medium" href="#">
-            For Sale
-          </a>
-
-          <a className="block text-gray-700 font-medium" href="#">
-            For Rent
-          </a>
-
-          {/* Mobile Buttons */}
+          {/* Mobile Buttons (UNCHANGED) */}
           <div className="pt-4 space-y-3">
             <button className="w-full py-3 rounded-lg border border-indigo-500 text-indigo-600">
               Login
