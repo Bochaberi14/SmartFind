@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -16,7 +15,14 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 items-center font-medium">
-
+          <li>
+        <Link
+        to="/"
+        className="cursor-pointer text-gray-700 hover:text-indigo-600 transition"
+        >
+        Home
+        </Link>
+        </li>
           <li>
             <Link
               to="/buy"
@@ -54,25 +60,21 @@ export default function Navbar() {
           </li>
 
           <li>
-            <ScrollLink
-              to="features"
-              smooth
-              duration={500}
+            <Link
+              to="/#features"
               className="cursor-pointer text-gray-700 hover:text-indigo-600 transition"
             >
               Features
-            </ScrollLink>
+            </Link>
           </li>
 
           <li>
-            <ScrollLink
-              to="pricing"
-              smooth
-              duration={500}
+            <Link
+              to="/#pricing"
               className="cursor-pointer text-gray-700 hover:text-blue-600 transition"
             >
               Pricing
-            </ScrollLink>
+            </Link>
           </li>
         </ul>
 
@@ -100,7 +102,13 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {open && (
         <div className="md:hidden bg-white border-t px-6 py-4 space-y-4">
-
+          <Link
+          to="/"
+          onClick={() => setOpen(false)}
+          className="block text-gray-700 font-medium"
+          >
+          Home
+          </Link>
           <Link
             to="/buy"
             onClick={() => setOpen(false)}
@@ -133,25 +141,21 @@ export default function Navbar() {
             Find an Agency
           </Link>
 
-          <ScrollLink
-            to="features"
-            smooth
-            duration={500}
+          <Link
+            to="/#features"
             onClick={() => setOpen(false)}
             className="block text-gray-700 font-medium"
           >
             Features
-          </ScrollLink>
+          </Link>
 
-          <ScrollLink
-            to="pricing"
-            smooth
-            duration={500}
+          <Link
+            to="/#pricing"
             onClick={() => setOpen(false)}
             className="block text-gray-700 font-medium"
           >
             Pricing
-          </ScrollLink>
+          </Link>
 
           {/* Mobile Buttons (UNCHANGED) */}
           <div className="pt-4 space-y-3">
